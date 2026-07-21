@@ -87,6 +87,15 @@ a:hover { text-decoration-color: currentColor; }
   font-size: 1.25rem;
   color: var(--ink);
   text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-icon {
+  height: 28px;
+  width: auto;
+  fill: var(--accent);
 }
 
 .primary-nav {
