@@ -93,7 +93,7 @@ a:hover { text-decoration-color: currentColor; }
 }
 
 .brand-icon {
-  height: 28px;
+  height: 34px;
   width: auto;
   fill: var(--accent);
 }
@@ -282,6 +282,13 @@ a:hover { text-decoration-color: currentColor; }
   font-size: 0.9rem;
   color: var(--ink-soft);
   margin-top: 4px;
+}
+
+.stat-context {
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  opacity: 0.75;
+  margin-top: 2px;
 }
 
 /* ---------- Timeline ---------- */
