@@ -15,6 +15,29 @@ nav.querySelectorAll('a').forEach((link) => {
   });
 });
 
+const navDropdown = document.querySelector('.nav-dropdown');
+const navDropdownToggle = document.querySelector('.nav-dropdown-toggle');
+
+navDropdownToggle.addEventListener('click', (event) => {
+  event.stopPropagation();
+  const isOpen = navDropdown.classList.toggle('open');
+  navDropdownToggle.setAttribute('aria-expanded', String(isOpen));
+});
+
+document.addEventListener('click', (event) => {
+  if (!navDropdown.contains(event.target)) {
+    navDropdown.classList.remove('open');
+    navDropdownToggle.setAttribute('aria-expanded', 'false');
+  }
+});
+
+navDropdown.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
+    navDropdown.classList.remove('open');
+    navDropdownToggle.setAttribute('aria-expanded', 'false');
+  });
+});
+
 const form = document.querySelector('.contact-form');
 
 form.addEventListener('submit', async (event) => {
