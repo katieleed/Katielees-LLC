@@ -229,6 +229,10 @@ a:hover { text-decoration-color: currentColor; }
   gap: 20px;
 }
 
+#services .card-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 .card {
   background: var(--card-bg);
   border: 1px solid var(--line);
@@ -523,6 +527,8 @@ blockquote cite {
   .primary-nav.open { display: flex; }
 
   .contact-grid { grid-template-columns: 1fr; }
+
+  #services .card-grid { grid-template-columns: 1fr; }
 
   .hero { padding: 64px 0 48px; }
   .section { padding: 56px 0; }
