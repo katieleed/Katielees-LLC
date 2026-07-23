@@ -233,6 +233,10 @@ a:hover { text-decoration-color: currentColor; }
   grid-template-columns: repeat(3, 1fr);
 }
 
+#services .card {
+  background: var(--bg);
+}
+
 .card {
   background: var(--card-bg);
   border: 1px solid var(--line);
@@ -345,10 +349,10 @@ a:hover { text-decoration-color: currentColor; }
   gap: 28px;
 }
 
-blockquote {
+.quote-grid blockquote {
   margin: 0;
   padding: 28px;
-  background: var(--card-bg);
+  background: var(--bg);
   border: 1px solid var(--line);
   border-radius: var(--radius);
 }
