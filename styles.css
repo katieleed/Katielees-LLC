@@ -302,8 +302,9 @@ a:hover { text-decoration-color: currentColor; }
 }
 
 .section-heading {
-  font-size: clamp(1.6rem, 2vw + 1rem, 2.2rem);
-  font-weight: 400;
+  font-family: var(--font-mono);
+  font-size: clamp(1.3rem, 1.6vw + 1rem, 1.8rem);
+  font-weight: 700;
 }
 
 .section-intro {
