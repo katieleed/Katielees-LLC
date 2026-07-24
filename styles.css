@@ -9,7 +9,7 @@ html { scroll-behavior: smooth; }
   --rust: #8A2B0E;
 
   --bg: var(--peach);
-  --bg-alt: color-mix(in oklch, color-mix(in oklch, var(--lavender) 70%, var(--terracotta) 30%) 60%, var(--rust) 40%);
+  --bg-alt: var(--lavender);
   --bg-alt-text: #FFFFFF;
   --ink: var(--rust);
   --ink-soft: color-mix(in srgb, var(--rust) 98%, var(--peach) 2%);
@@ -291,6 +291,10 @@ a:hover { text-decoration-color: currentColor; }
 .section-alt .section-heading,
 .section-alt .section-intro {
   color: var(--bg-alt-text);
+}
+.section-alt .section-intro {
+  font-size: 1.5rem;
+  font-weight: 400;
 }
 .section-alt .card,
 .section-alt .testimonial-slide {
