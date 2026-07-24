@@ -9,7 +9,7 @@ html { scroll-behavior: smooth; }
   --rust: #8A2B0E;
 
   --bg: var(--peach);
-  --bg-alt: color-mix(in srgb, var(--lavender) 60%, var(--rust) 40%);
+  --bg-alt: color-mix(in oklch, color-mix(in oklch, var(--lavender) 70%, var(--terracotta) 30%) 60%, var(--rust) 40%);
   --bg-alt-text: #FFFFFF;
   --ink: var(--rust);
   --ink-soft: color-mix(in srgb, var(--rust) 98%, var(--peach) 2%);
