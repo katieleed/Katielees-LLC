@@ -328,12 +328,12 @@ a:hover { text-decoration-color: currentColor; }
 #services .card {
   background: var(--card-bg);
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 0.5s ease, transform 0.5s ease;
+  transform: translate(var(--fly-x, 0), var(--fly-y, 0)) scale(0.35);
+  transition: opacity 0.5s ease, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 #services .card.revealed {
   opacity: 1;
-  transform: none;
+  transform: translate(0, 0) scale(1);
 }
 
 .services-stage-wrap {

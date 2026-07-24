@@ -68,6 +68,21 @@ if (servicesStageWrap && serviceCards.length) {
   if (prefersReducedMotion) {
     serviceCards.forEach((card) => card.classList.add('revealed'));
   } else {
+    const typewriterIcon = document.querySelector('.typewriter-icon');
+    function updateFlyOffsets() {
+      if (!typewriterIcon) return;
+      const iconRect = typewriterIcon.getBoundingClientRect();
+      const iconX = iconRect.left + iconRect.width / 2;
+      const iconY = iconRect.top + iconRect.height / 2;
+      serviceCards.forEach((card) => {
+        const cardRect = card.getBoundingClientRect();
+        const cardX = cardRect.left + cardRect.width / 2;
+        const cardY = cardRect.top + cardRect.height / 2;
+        card.style.setProperty('--fly-x', `${iconX - cardX}px`);
+        card.style.setProperty('--fly-y', `${iconY - cardY}px`);
+      });
+    }
+
     let ticking = false;
     function updateServicesReveal() {
       const rect = servicesStageWrap.getBoundingClientRect();
@@ -90,7 +105,11 @@ if (servicesStageWrap && serviceCards.length) {
       }
     }
     window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', updateServicesReveal);
+    window.addEventListener('resize', () => {
+      updateFlyOffsets();
+      updateServicesReveal();
+    });
+    updateFlyOffsets();
     updateServicesReveal();
   }
 }
