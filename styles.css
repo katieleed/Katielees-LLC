@@ -9,7 +9,8 @@ html { scroll-behavior: smooth; }
   --rust: #8A2B0E;
 
   --bg: var(--peach);
-  --bg-alt: color-mix(in srgb, var(--lavender) 35%, var(--peach) 65%);
+  --bg-alt: color-mix(in srgb, var(--lavender) 60%, var(--rust) 40%);
+  --bg-alt-text: #FFFFFF;
   --ink: var(--rust);
   --ink-soft: color-mix(in srgb, var(--rust) 98%, var(--peach) 2%);
   --accent: var(--terracotta);
@@ -287,6 +288,14 @@ a:hover { text-decoration-color: currentColor; }
 /* ---------- Sections ---------- */
 .section { padding: 80px 0; }
 .section-alt { background: var(--bg-alt); }
+.section-alt .section-heading,
+.section-alt .section-intro {
+  color: var(--bg-alt-text);
+}
+.section-alt .card,
+.section-alt .testimonial-slide {
+  border-left-color: var(--bg-alt-text);
+}
 
 .section-heading {
   font-size: clamp(1.6rem, 2vw + 1rem, 2.2rem);
@@ -521,16 +530,16 @@ a:hover { text-decoration-color: currentColor; }
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid var(--line);
+  border: 1px solid color-mix(in srgb, var(--bg-alt-text) 40%, transparent);
   background: none;
-  color: var(--ink);
+  color: var(--bg-alt-text);
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
 }
 .carousel-btn:hover {
-  border-color: var(--accent-on-light);
-  color: var(--accent-on-light);
+  border-color: var(--bg-alt-text);
+  background: color-mix(in srgb, var(--bg-alt-text) 15%, transparent);
 }
 
 .carousel-dots {
@@ -543,11 +552,11 @@ a:hover { text-decoration-color: currentColor; }
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: var(--line);
+  background: color-mix(in srgb, var(--bg-alt-text) 35%, transparent);
   cursor: pointer;
 }
 .carousel-dot.active {
-  background: var(--lavender);
+  background: var(--bg-alt-text);
 }
 
 blockquote p {
