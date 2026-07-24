@@ -371,6 +371,69 @@ a:hover { text-decoration-color: currentColor; }
 
 .card p { margin-bottom: 0; font-size: 0.98rem; }
 
+.service-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  padding: 0;
+  background: none;
+  border: none;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--accent-on-light);
+  cursor: pointer;
+}
+.service-toggle:hover { color: var(--accent-btn-bg-hover); }
+.service-toggle .chevron {
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+.service-toggle[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+.service-detail {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+.service-detail ul {
+  overflow: hidden;
+  margin: 0;
+  padding: 14px 0 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.service-toggle[aria-expanded="true"] + .service-detail {
+  grid-template-rows: 1fr;
+}
+.service-detail li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.service-detail li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--lavender);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-detail { transition: none; }
+  .service-toggle .chevron { transition: none; }
+}
+
 .card-link {
   display: block;
   text-decoration: none;
