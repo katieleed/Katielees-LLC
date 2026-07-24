@@ -38,6 +38,60 @@ navDropdown.querySelectorAll('a').forEach((link) => {
   });
 });
 
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const heroHeadline = document.getElementById('hero-headline');
+if (heroHeadline && !prefersReducedMotion) {
+  const fullText = heroHeadline.textContent;
+  heroHeadline.textContent = '';
+  const cursor = document.createElement('span');
+  cursor.className = 'typewriter-cursor';
+  heroHeadline.appendChild(cursor);
+
+  let charIndex = 0;
+  function typeNextChar() {
+    if (charIndex < fullText.length) {
+      cursor.insertAdjacentText('beforebegin', fullText[charIndex]);
+      charIndex++;
+      setTimeout(typeNextChar, 22);
+    } else {
+      setTimeout(() => cursor.remove(), 1200);
+    }
+  }
+  typeNextChar();
+}
+
+const servicesStageWrap = document.querySelector('.services-stage-wrap');
+const serviceCards = servicesStageWrap ? [...servicesStageWrap.querySelectorAll('.card')] : [];
+
+if (servicesStageWrap && serviceCards.length) {
+  if (prefersReducedMotion) {
+    serviceCards.forEach((card) => card.classList.add('revealed'));
+  } else {
+    let ticking = false;
+    function updateServicesReveal() {
+      const rect = servicesStageWrap.getBoundingClientRect();
+      const total = rect.height - window.innerHeight;
+      const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 0));
+      const progress = total > 0 ? scrolled / total : 1;
+      const revealCount = progress <= 0 ? 0 : Math.min(serviceCards.length, Math.ceil(progress * serviceCards.length));
+      serviceCards.forEach((card, i) => {
+        card.classList.toggle('revealed', i < revealCount);
+      });
+      ticking = false;
+    }
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(updateServicesReveal);
+        ticking = true;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', updateServicesReveal);
+    updateServicesReveal();
+  }
+}
+
 const form = document.querySelector('.contact-form');
 
 form.addEventListener('submit', async (event) => {
