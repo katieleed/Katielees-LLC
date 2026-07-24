@@ -18,8 +18,6 @@ html { scroll-behavior: smooth; }
   --accent-on-dark: color-mix(in srgb, var(--terracotta) 25%, var(--peach) 75%);
   --accent-btn-bg: color-mix(in srgb, var(--terracotta) 76%, var(--rust) 24%);
   --accent-btn-bg-hover: color-mix(in srgb, var(--terracotta) 64%, var(--rust) 36%);
-  --secondary-on-light: color-mix(in srgb, var(--lavender) 65%, var(--rust) 35%);
-  --secondary-on-dark: color-mix(in srgb, var(--lavender) 40%, var(--peach) 60%);
   --line: color-mix(in srgb, var(--rust) 20%, transparent);
   --card-bg: #FFFFFF;
   --dark: var(--rust);
@@ -378,14 +376,25 @@ a:hover { text-decoration-color: currentColor; }
 .card-link h3 { color: var(--ink); margin-bottom: 0; font-size: 1.02rem; }
 
 .card-kicker {
-  display: block;
+  display: flex;
+  align-items: center;
+  gap: 7px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-size: 0.75rem;
   font-weight: 700;
   font-family: var(--font-mono);
-  color: var(--secondary-on-light);
+  color: var(--accent-ink);
   margin-bottom: 10px;
+}
+.card-kicker::before {
+  content: "";
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lavender);
+  flex-shrink: 0;
 }
 
 /* ---------- Stats ---------- */
@@ -468,6 +477,7 @@ a:hover { text-decoration-color: currentColor; }
   padding: 28px;
   background: var(--card-bg);
   border: 1px solid var(--line);
+  border-left: 4px solid var(--lavender);
   border-radius: var(--radius);
 }
 
@@ -482,7 +492,7 @@ blockquote p {
 blockquote cite {
   font-style: normal;
   font-size: 0.9rem;
-  color: var(--secondary-on-light);
+  color: var(--accent-ink);
   font-weight: 700;
 }
 
