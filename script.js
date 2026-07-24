@@ -72,9 +72,12 @@ if (servicesStageWrap && serviceCards.length) {
     function updateServicesReveal() {
       const rect = servicesStageWrap.getBoundingClientRect();
       const total = rect.height - window.innerHeight;
+      const hasEntered = rect.top <= 0;
       const scrolled = Math.min(Math.max(-rect.top, 0), Math.max(total, 0));
       const progress = total > 0 ? scrolled / total : 1;
-      const revealCount = progress <= 0 ? 0 : Math.min(serviceCards.length, Math.ceil(progress * serviceCards.length));
+      const revealCount = !hasEntered
+        ? 0
+        : Math.min(serviceCards.length, 1 + Math.floor(progress * (serviceCards.length - 1)));
       serviceCards.forEach((card, i) => {
         card.classList.toggle('revealed', i < revealCount);
       });

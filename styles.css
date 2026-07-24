@@ -338,7 +338,7 @@ a:hover { text-decoration-color: currentColor; }
 
 .services-stage-wrap {
   position: relative;
-  height: 340vh;
+  height: 220vh;
 }
 .services-stage {
   position: sticky;
