@@ -92,6 +92,83 @@ if (servicesStageWrap && serviceCards.length) {
   }
 }
 
+const carousel = document.querySelector('.testimonial-carousel');
+
+if (carousel) {
+  const track = carousel.querySelector('.testimonial-track');
+  const slides = [...track.querySelectorAll('.testimonial-slide')];
+  const dotsWrap = carousel.querySelector('.carousel-dots');
+  const prevBtn = carousel.querySelector('.carousel-prev');
+  const nextBtn = carousel.querySelector('.carousel-next');
+  let current = 0;
+  let autoplayId = null;
+  let userPaused = false;
+
+  const dots = slides.map((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'carousel-dot';
+    dot.setAttribute('aria-label', `Show testimonial ${i + 1} of ${slides.length}`);
+    dot.addEventListener('click', () => {
+      goTo(i);
+      userPaused = true;
+      stopAutoplay();
+    });
+    dotsWrap.appendChild(dot);
+    return dot;
+  });
+
+  function goTo(index) {
+    current = (index + slides.length) % slides.length;
+    slides.forEach((slide, i) => {
+      const isActive = i === current;
+      slide.classList.toggle('active', isActive);
+      slide.setAttribute('aria-hidden', String(!isActive));
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === current);
+      dot.setAttribute('aria-current', i === current ? 'true' : 'false');
+    });
+  }
+
+  function next() {
+    goTo(current + 1);
+  }
+  function prev() {
+    goTo(current - 1);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    prev();
+    userPaused = true;
+    stopAutoplay();
+  });
+  nextBtn.addEventListener('click', () => {
+    next();
+    userPaused = true;
+    stopAutoplay();
+  });
+
+  function startAutoplay() {
+    if (prefersReducedMotion || userPaused || autoplayId) return;
+    autoplayId = setInterval(next, 7000);
+  }
+  function stopAutoplay() {
+    if (autoplayId) {
+      clearInterval(autoplayId);
+      autoplayId = null;
+    }
+  }
+
+  carousel.addEventListener('mouseenter', stopAutoplay);
+  carousel.addEventListener('focusin', stopAutoplay);
+  carousel.addEventListener('mouseleave', startAutoplay);
+  carousel.addEventListener('focusout', startAutoplay);
+
+  goTo(0);
+  startAutoplay();
+}
+
 const form = document.querySelector('.contact-form');
 
 form.addEventListener('submit', async (event) => {

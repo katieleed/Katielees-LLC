@@ -348,6 +348,7 @@ a:hover { text-decoration-color: currentColor; }
   .services-stage-wrap { height: auto; }
   .services-stage { position: static; }
   #services .card { opacity: 1; transform: none; }
+  .testimonial-slide { transition: none; }
 }
 
 .card {
@@ -465,23 +466,88 @@ a:hover { text-decoration-color: currentColor; }
   color: var(--ink-soft);
   font-weight: 500;
 }
+.role-meta a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.role-meta a:hover {
+  color: var(--accent-ink);
+}
 
 .role p { max-width: 70ch; margin-bottom: 0; }
 
 /* ---------- Quotes ---------- */
-.quote-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
+.testimonial-carousel {
+  max-width: 640px;
+  margin: 0 auto;
 }
 
-.quote-grid blockquote {
+.testimonial-track {
+  display: grid;
+}
+
+.testimonial-slide {
+  grid-area: 1 / 1;
   margin: 0;
   padding: 28px;
   background: var(--card-bg);
   border: 1px solid var(--line);
   border-left: 5px solid var(--lavender);
   border-radius: var(--radius);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.testimonial-slide.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.carousel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: none;
+  color: var(--ink);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.carousel-btn:hover {
+  border-color: var(--accent-on-light);
+  color: var(--accent-on-light);
+}
+
+.carousel-dots {
+  display: flex;
+  gap: 8px;
+}
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--line);
+  cursor: pointer;
+}
+.carousel-dot.active {
+  background: var(--lavender);
 }
 
 blockquote p {
