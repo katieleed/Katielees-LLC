@@ -10,9 +10,9 @@ html { scroll-behavior: smooth; }
 
   --bg: var(--peach);
   --bg-alt: var(--lavender);
-  --bg-alt-text: #FFFFFF;
   --ink: var(--rust);
   --ink-soft: color-mix(in srgb, var(--rust) 98%, var(--peach) 2%);
+  --ink-on-alt: color-mix(in oklch, var(--rust) 50%, black 50%);
   --accent: var(--terracotta);
   --accent-ink: var(--rust);
   --accent-on-light: color-mix(in srgb, var(--terracotta) 58%, var(--rust) 42%);
@@ -290,15 +290,7 @@ a:hover { text-decoration-color: currentColor; }
 .section-alt { background: var(--bg-alt); }
 .section-alt .section-heading,
 .section-alt .section-intro {
-  color: var(--bg-alt-text);
-}
-.section-alt .section-intro {
-  font-size: 1.5rem;
-  font-weight: 400;
-}
-.section-alt .card,
-.section-alt .testimonial-slide {
-  border-left-color: var(--bg-alt-text);
+  color: var(--ink-on-alt);
 }
 
 .section-heading {
@@ -535,16 +527,16 @@ a:hover { text-decoration-color: currentColor; }
   width: 36px;
   height: 36px;
   border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--bg-alt-text) 40%, transparent);
+  border: 1px solid color-mix(in srgb, var(--ink-on-alt) 35%, transparent);
   background: none;
-  color: var(--bg-alt-text);
+  color: var(--ink-on-alt);
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
 }
 .carousel-btn:hover {
-  border-color: var(--bg-alt-text);
-  background: color-mix(in srgb, var(--bg-alt-text) 15%, transparent);
+  border-color: var(--ink-on-alt);
+  background: color-mix(in srgb, var(--ink-on-alt) 10%, transparent);
 }
 
 .carousel-dots {
@@ -557,11 +549,11 @@ a:hover { text-decoration-color: currentColor; }
   padding: 0;
   border: none;
   border-radius: 50%;
-  background: color-mix(in srgb, var(--bg-alt-text) 35%, transparent);
+  background: color-mix(in srgb, var(--ink-on-alt) 30%, transparent);
   cursor: pointer;
 }
 .carousel-dot.active {
-  background: var(--bg-alt-text);
+  background: var(--ink-on-alt);
 }
 
 blockquote p {
