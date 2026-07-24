@@ -315,6 +315,10 @@ a:hover { text-decoration-color: currentColor; }
   gap: 20px;
 }
 
+#work .card-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
 #services .card-grid {
   grid-template-columns: repeat(3, 1fr);
   position: relative;
@@ -810,6 +814,7 @@ blockquote cite {
   .contact-grid { grid-template-columns: 1fr; }
 
   #services .card-grid { grid-template-columns: 1fr; }
+  #work .card-grid { grid-template-columns: 1fr; }
 
   .services-stage-wrap { height: auto; }
   .services-stage { position: static; }
