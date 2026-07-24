@@ -84,7 +84,7 @@ a:hover { text-decoration-color: currentColor; }
   z-index: 100;
   background: color-mix(in srgb, var(--dark) 94%, transparent);
   backdrop-filter: saturate(140%) blur(8px);
-  border-bottom: 1px solid color-mix(in srgb, var(--dark-text) 12%, transparent);
+  border-bottom: 3px solid var(--lavender);
 }
 
 .header-inner {
