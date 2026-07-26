@@ -109,9 +109,8 @@ a:hover { text-decoration-color: currentColor; }
 }
 
 .brand-icon {
-  height: 34px;
+  height: 30px;
   width: auto;
-  fill: var(--accent-on-dark);
 }
 
 .primary-nav {
