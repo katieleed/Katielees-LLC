@@ -775,6 +775,60 @@ blockquote cite {
 .footer-inner a { color: var(--dark-text-soft); }
 .footer-inner a:hover { color: var(--accent-on-dark); }
 
+/* ---------- Article ---------- */
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--accent-on-light);
+  text-decoration: none;
+  margin-bottom: 32px;
+}
+.back-link:hover { color: var(--accent-btn-bg-hover); }
+
+.article-header { max-width: 68ch; margin-bottom: 40px; }
+
+.article-meta {
+  display: block;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent-on-light);
+  margin-bottom: 14px;
+}
+
+.article-title {
+  font-size: clamp(1.8rem, 3vw + 1rem, 2.6rem);
+  font-weight: 400;
+  margin-bottom: 0;
+}
+
+.article-body { max-width: 68ch; }
+.article-body p { font-size: 1.08rem; line-height: 1.75; margin-bottom: 1.3em; }
+.article-body h2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  margin-top: 1.6em;
+  margin-bottom: 0.6em;
+}
+.article-body ul, .article-body ol { margin: 0 0 1.3em; padding-left: 1.3em; }
+.article-body li { font-size: 1.08rem; line-height: 1.7; margin-bottom: 0.5em; color: var(--ink-soft); }
+.article-body a { color: var(--accent-on-light); }
+.article-body blockquote {
+  margin: 1.6em 0;
+  padding-left: 20px;
+  border-left: 4px solid var(--lavender);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
 /* ---------- Responsive ---------- */
 @media (max-width: 760px) {
   .nav-toggle { display: flex; }
