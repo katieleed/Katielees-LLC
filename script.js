@@ -233,6 +233,6 @@ form.addEventListener('submit', async (event) => {
       errorEl.className = 'form-error';
       form.appendChild(errorEl);
     }
-    errorEl.textContent = 'Something went wrong — please email katieleesanders@gmail.com directly.';
+    errorEl.textContent = 'Something went wrong — please email katieleesllc@gmail.com directly.';
   }
 });
