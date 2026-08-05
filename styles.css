@@ -304,6 +304,18 @@ a:hover { text-decoration-color: currentColor; }
 }
 
 /* ---------- About ---------- */
+.about-flex {
+  display: flex;
+  gap: 44px;
+  align-items: flex-start;
+}
+.about-photo {
+  width: 260px;
+  height: auto;
+  flex-shrink: 0;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
 .about-copy { max-width: 68ch; }
 .about-copy p { font-size: 1.05rem; }
 
@@ -702,6 +714,14 @@ blockquote cite {
   font-size: 1.05rem;
 }
 
+.contact-photo {
+  width: 200px;
+  height: auto;
+  margin-top: 32px;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -873,6 +893,11 @@ blockquote cite {
   .nav-dropdown-menu a { padding: 0; }
 
   .contact-grid { grid-template-columns: 1fr; }
+
+  .about-flex { flex-direction: column; }
+  .about-photo { width: 200px; }
+
+  .contact-photo { width: 160px; }
 
   #services .card-grid { grid-template-columns: 1fr; }
   #work .card-grid { grid-template-columns: 1fr; }
