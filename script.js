@@ -116,10 +116,11 @@ if (servicesStageWrap && serviceCards.length) {
 
 document.querySelectorAll('.service-toggle').forEach((btn) => {
   const label = btn.querySelector('span');
+  const openLabel = label.textContent;
   btn.addEventListener('click', () => {
     const expanded = btn.getAttribute('aria-expanded') === 'true';
     btn.setAttribute('aria-expanded', String(!expanded));
-    label.textContent = expanded ? 'See what this includes' : 'Hide details';
+    label.textContent = expanded ? openLabel : 'Hide details';
   });
 });
 

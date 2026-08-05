@@ -431,6 +431,14 @@ a:hover { text-decoration-color: currentColor; }
   border-radius: 50%;
   background: var(--lavender);
 }
+.service-detail p {
+  overflow: hidden;
+  margin: 0;
+  padding: 14px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
 
 @media (prefers-reduced-motion: reduce) {
   .service-detail { transition: none; }
